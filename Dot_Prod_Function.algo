@@ -1,0 +1,40 @@
+
+FUNCTION dot_prod(V1:ARRAY_OF INTEGER[VAR N:INTEGER],V2:ARRAY_OF INTEGER[N]) : INTEGER
+VAR
+        i,j:INTEGER;
+        Prod:INTEGER=0;
+BEGIN
+     Read(N);
+    FOR i FROM 0 TO N-1 DO
+        FOR j FROM 0 TO N-1  DO
+            Prod:=V1[i]*V2[j]
+        END_FOR
+    END_FOR
+    RETURN Prod ;
+END
+ALGORITHM Dot_ProductCheckpoint
+VAR
+    i,j,k,N:INTEGER;
+BEGIN
+    REPEAT
+        Write("donner le nombre des vecteurs");             
+        Read(npairs);
+    UNTIL (npairs>0 AND npairs%2=0)
+FOR i FROM 0 TO npairs   DO
+    FOR j FROM 0 TO N-1   DO
+        Write("donner le premier  vecteur");
+        Read(V1[j]);
+    END_FOR
+    FOR k FROM 0 TO N-1  DO
+        Write("donner le deuxiéme vecteur");
+        Read(V2[k]);
+    END_FOR
+    P:=dot_prod(V1,V2)
+    IF (P==0) THEN
+    Write("Les vecteurs sont orthogonaux ");
+ELSE
+    Write("Les vecteurs ne sont pas orthogonaux");
+END_IF
+END_FOR
+
+END
